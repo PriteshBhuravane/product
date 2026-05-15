@@ -189,7 +189,7 @@ class ProductController extends Controller
 
         $data = $request->only(['name', 'category_id', 'price', 'description']);
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('products', 'public');
+            $data['image'] = $request->file('image')->store('products', 's3');
         }
         $product->update($data);
         return redirect()->route('product.index')->with('success', 'Product updated successfully');
