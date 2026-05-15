@@ -59,7 +59,8 @@ class ProductController extends Controller
             'description' => 'nullable',
         ]);
 
-        $image = $request->file('image')->store('products', 'public');
+        //$image = $request->file('image')->store('products', 'public');
+        $image = $request->file('image')->store('products', 's3');
 
         $product = Product::create([
             'name' => $request->name,
